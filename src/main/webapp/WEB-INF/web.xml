@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
+
+    <!-- agence -->
+        <!-- show -->
+    <servlet>
+        <description></description>
+        <servlet-name>AgenceNewApi</servlet-name>
+        <servlet-class>api.agence.NewApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AgenceNewApi</servlet-name>
+        <url-pattern>/agences/new</url-pattern>
+    </servlet-mapping>
+        <!-- show -->
+    <servlet>
+        <description></description>
+        <servlet-name>AgenceEditApi</servlet-name>
+        <servlet-class>api.agence.EditApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AgenceEditApi</servlet-name>
+        <url-pattern>/agences/edit</url-pattern>
+    </servlet-mapping>
+    <!-- delete -->
+    <servlet>
+        <description></description>
+        <servlet-name>DeleteApi</servlet-name>
+        <servlet-class>api.agence.DeleteApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteApi</servlet-name>
+        <url-pattern>/agences/delete</url-pattern>
+    </servlet-mapping>
+    <!-- insert -->
+    <servlet>
+        <description></description>
+        <servlet-name>InsertApi</servlet-name>
+        <servlet-class>api.agence.InsertApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertApi</servlet-name>
+        <url-pattern>/agences/insert</url-pattern>
+    </servlet-mapping>
+</web-app>
