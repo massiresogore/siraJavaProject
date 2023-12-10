@@ -2,33 +2,61 @@ package com.sira.controller;
 
 import com.sira.core.entity.Agence;
 import com.sira.core.repository.AgenceRepository;
+import com.sira.core.service.AgenceService;
+import dto.AgenceDto;
 
 import java.util.List;
 
 public class AgenceController {
-    private static AgenceRepository agenceRepository;
+
+    public AgenceService agenceService;
+    private AgenceRepository agenceRepository;
 
     public AgenceController()
     {
-        agenceRepository = new AgenceRepository();
+
+        this.agenceService = new AgenceService();
+        this.agenceRepository = new AgenceRepository();
     }
+    /*
+    public void afficheDetailEpreuve()
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("quel est  l'id  Epreuve ? ");
+        Long identifient = scanner.nextLong();
+        Epreuve epreuve =  epreuveService.getEpreuve(identifient);
+        System.out.println("La classe tournoi est de type :"+ epreuve.getTournoi().getClass().getName());
+        System.out.println("Le epreuve sélectionné se deroule en :"+ epreuve.getAnnee()+" il s'agit du tournoi "+ epreuve.getTournoi().getNom());
+    }
+
+     */
+
+    public AgenceDto readOne(int id) {
+      return agenceService.readOne(id);
+    }
+
 
     public  void create(Agence agence)
     {
-        agenceRepository.create(agence);
+        agenceService.create(agence);
     }
 
-    public Agence readOne(int id) {
-         return agenceRepository.readOne(id);
+    public void update(Agence agence)
+    {
+        agenceService.update(agence);
     }
+
+
     public boolean delete(int id)
     {
         return agenceRepository.delete( id);
     }
 
-    public List<Agence> readAll()
+    //Déja Dto
+    public List<AgenceDto> readAll()
     {
-        return agenceRepository.readAll();
+        return agenceService.readAll();
     }
+
 
 }

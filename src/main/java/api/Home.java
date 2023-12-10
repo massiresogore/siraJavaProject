@@ -22,6 +22,8 @@ public class Home extends HttpServlet {
        // request.setAttribute("bool", bool);
         //List<Agence> agences = agenceController.readAll();
         //request.setAttribute("agences", agences);
+        System.out.println("home de massire");
+
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 

@@ -11,6 +11,7 @@ import java.io.IOException;
 
 //@WebServlet(name = "agencenew", value = "agence/new")
 public class NewApi extends HttpServlet {
+    private AgenceController agenceController = new AgenceController();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println(request.getServletPath());
@@ -20,10 +21,8 @@ public class NewApi extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Agence agence = AgenceRequest(request);
-        AgenceController agenceController = new AgenceController();
-        agenceController.create(agence);
+        this.agenceController.create(agence);
         response.sendRedirect("/sira/agences");
-
         System.out.println("Post");
         //doGet(request,response);
     }

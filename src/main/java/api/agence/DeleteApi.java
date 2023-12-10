@@ -9,11 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class DeleteApi extends HttpServlet {
+    private AgenceController agenceController = new AgenceController();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        AgenceController agenceController = new AgenceController();
-       boolean res = agenceController.delete(id);
+       boolean res = this.agenceController.delete(id);
 
 
        if (res){

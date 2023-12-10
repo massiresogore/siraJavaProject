@@ -3,6 +3,7 @@ package api.agence;
 import com.sira.controller.AgenceController;
 import com.sira.core.entity.Agence;
 import com.sira.core.repository.AgenceRepository;
+import dto.AgenceDto;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,13 +12,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class EditApi extends HttpServlet {
+    private AgenceController agenceController = new AgenceController();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("id"));
-        AgenceController agenceController = new AgenceController();
-       Agence agence =  agenceController.readOne(Integer.parseInt(request.getParameter("id")));
-       request.setAttribute("agence", agence);
 
+       AgenceDto agence =  this.agenceController.readOne(Integer.parseInt(request.getParameter("id")));
+       request.setAttribute("agence", agence);
         request.getRequestDispatcher("/pages/agence/edit.jsp").forward(request,response);
     }
 
